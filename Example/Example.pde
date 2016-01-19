@@ -19,9 +19,9 @@ void draw() {
   // update Optical Flow
   updateFlow();
   // draw camera image
-  image(video, 0, 0);
-  // draw flow grid
-  drawFlow();
-  // draw mean arrow
-  drawMean();
+   image(video, 0, 0);
+   // draw flow grid
+   drawFlow();
+   // draw mean arrow
+   drawMean();
 }

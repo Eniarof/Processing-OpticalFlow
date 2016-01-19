@@ -45,8 +45,8 @@ float[] sflowx, sflowy; // slowly changing version of the flow
 
 float meanX;
 float meanY;
-float meanA;
-float meanR;
+float angle;
+float magnitude;
 
 void setupFlow(int w, int h) {
 
@@ -170,23 +170,23 @@ void updateFlow() {
   meanX /= gc;
   meanY /= gc;
   
-  meanA = atan2(meanY,meanX);
-  meanR = mag(meanX,meanY);
+  angle = atan2(meanY,meanX);
+  magnitude = mag(meanX,meanY);
   
 }
 
 
 void drawMean() {
   
-    if (meanR < 0.25) return;
+    if (magnitude < 0.25) return;
     
     strokeWeight(5);
     stroke(255,255,0);
     
     pushMatrix();
     translate(width/2,height/2);
-    rotate(meanA);
-    float radius = meanR*100.0;
+    rotate(angle);
+    float radius = magnitude*100.0;
     line(0,0,radius,0);
     line(radius,0,radius-15,-15);
     line(radius,0,radius-15,15);
